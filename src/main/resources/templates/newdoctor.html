@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MedicalSystem - New Doctor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Create a new doctor</h1>
+<div class="alert alert-danger" th:style="'border-style: solid;border-color: red;color:red;'" role="alert" th:text="'You have to fill all the fields.'" th:if="${errorEmptyField}"></div>
+<div class="alert alert-danger" th:style="'border-style: solid;border-color: red;color:red;'" role="alert" th:text="'Username already taken.'" th:if="${errorUsernameTaken}"></div>
+<form action="createdoctor" method="post">
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+  Username:<input type="text" name="username"><br>
+  Name:<input type="text" name="name"><br>
+  Surname:<input type="text" name="surname"><br>
+  Address:<input type="text" name="address"><br>
+  Phone number:<input type="text" name="phoneNumber"><br>
+  Specialization:<select name="specialization">
+  <option th:each="spec : ${T(com.matteocompany.medicalsystem.Model.Specialization).values()}"
+          th:value="${spec}" th:text="${spec}"></option></select><br>
+  <input type="submit" />
+</form>
+
+<br><br>
+<a href="admin"> Back </a>
+<br>
+<a href="logout"> Log Out </a>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MedicalSystem - Patient View</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Detail of patient:</h1>
+<ul>
+    <li th:text="'Username: ' + ${patientToDisplay.getUsername()} "> John </li>
+    <li th:text="'Name: ' + ${patientToDisplay.getName()} "> John </li>
+    <li th:text="'Surname: ' + ${patientToDisplay.getSurname()} "> Smith </li>
+    <li th:text="'Address: ' + ${patientToDisplay.getAddress()} "> Via bla bla </li>
+    <li th:text="'Phone number: ' + ${patientToDisplay.getPhoneNumber()} "> 383838838 </li>
+    <li th:text="${patientToDisplay.getCurrentDoctor()} ? 'Current Doctor: ' + ${patientToDisplay.getCurrentDoctor()} : 'Current Doctor: Doctor not assigned.'" />
+</ul>
+<br>
+<td>
+    <span th:if="${isAdmin}"><a href="admin"> Back </a><br></span>
+    <span th:unless="${isAdmin}"></span>
+</td>
+<a href="logout"> Log Out </a>
+
+</body>
+</html>

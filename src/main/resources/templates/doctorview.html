@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MedicalSystem - Doctor View</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Detail of doctor:</h1>
+<ul>
+    <li th:text="'Name: ' + ${doctorToDisplay.getName()} "> John </li>
+    <li th:text="'Surname: ' + ${doctorToDisplay.getSurname()} "> Smith </li>
+    <li th:text="'Address: ' + ${doctorToDisplay.getAddress()} "> Addres </li>
+    <li th:text="'Phone number: ' + ${doctorToDisplay.getPhoneNumber()} "> 3345566788 </li>
+    <li th:text="'Specialization: ' + ${doctorToDisplay.getSpecialization()} "> John </li>
+</ul>
+<br>
+Current patients:
+<ul>
+    <tr th:each="patient : ${doctorToDisplay.getPatients()}">
+        <td><span th:text="${patient}"> Title </span><br></td>
+    </tr>
+</ul>
+<br>
+<td>
+    <span th:if="${isAdmin}"><a href="admin"> Back </a><br></span>
+    <span th:unless="${isAdmin}"></span>
+</td>
+<a href="logout"> Log Out </a>
+</body>
+</html>

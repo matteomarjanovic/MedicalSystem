@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MedicalSystem - Add Current Doctor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Add a current doctor to </h1>
+
+Doctors:
+<br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Choose Doctor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="doctor: ${doctors}">
+        <td th:text="${doctor.username}"> <b>10 </b></td>
+        <td th:text="${doctor.name}"> John </td>
+        <td th:text="${doctor.surname}"> Smith </td>
+        <td><a href="createdoctormatch" th:href="@{createdoctormatch(doctor=${doctor.username}, patient=${patient.username})}">Choose this doctor</a></td>
+    </tr>
+    </tbody>
+</table>
+<br><br>
+<a href="admin"> Back </a>
+<br>
+<a href="logout"> Log Out </a>
+
+</body>
+</html>
+
