@@ -31,8 +31,7 @@ public class InitializerTest {
     @Test
     public void initializerTest() {
         DBInitializer.initialize();
-        Iterable<Doctor> doctorIterator = doctorRepository.findAll();
-        Doctor doctor = doctorIterator.iterator().next();
+        Doctor doctor = doctorRepository.findByUsername("angelicamancini");
         assertEquals(doctor.getUsername(), "angelicamancini");
         assertEquals(doctor.getName(), "Angelica");
         assertEquals(doctor.getSurname(), "Mancini");
@@ -40,8 +39,7 @@ public class InitializerTest {
         assertEquals(doctor.getPhoneNumber(), "3331112244");
         assertEquals(doctor.getSpecialization(), Specialization.NEUROLOGIST);
         assertEquals(doctor.toString(), "Angelica Mancini");
-        Iterable<Patient> patientIterator = patientRepository.findAll();
-        Patient patient = patientIterator.iterator().next();
+        Patient patient = patientRepository.findByUsername("mariorossi");
         assertEquals(patient.getUsername(), "mariorossi");
         assertEquals(patient.getName(), "Mario");
         assertEquals(patient.getSurname(), "Rossi");
